@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Akshaya G | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,9 +23,12 @@
 
     <!-- HOME -->
     <section id="home" class="home">
+        <img src="profile.jpg" alt="Akshaya G" class="profile-pic">
         <h1>Hi, I'm <span>Akshaya G</span></h1>
         <p>Computer Science, Technology & Business Student</p>
-        <p>Future Data Analyst</p>
+        <p class="role">Future Data Analyst</p>
+
+        <a href="Akshaya_Resume.pdf" download class="btn">Download Resume</a>
     </section>
 
     <!-- ABOUT -->
@@ -33,15 +37,15 @@
         <p>
             I am Akshaya G, a B.Tech Computer Science and Business Systems student.
             I am interested in technology, business, and data analytics.
-            My goal is to become a Data Analyst and work with data to generate
-            meaningful business insights.
+            My goal is to become a Data Analyst and create meaningful insights
+            using data and visualization tools.
         </p>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
+        <ul class="list">
             <li>C, Java, Python</li>
             <li>MySQL</li>
             <li>Power BI (DAX)</li>
@@ -62,10 +66,16 @@
     <!-- PROJECTS -->
     <section id="projects">
         <h2>Projects</h2>
-        <ul>
-            <li><b>Supermarket Sales Dashboard</b> – Power BI & DAX</li>
-            <li><b>Student Database Management System</b> – MySQL</li>
-        </ul>
+        <div class="cards">
+            <div class="card">
+                <b>Supermarket Sales Dashboard</b><br>
+                Power BI & DAX
+            </div>
+            <div class="card">
+                <b>Student Database Management System</b><br>
+                MySQL
+            </div>
+        </div>
     </section>
 
     <!-- CONTACT -->
@@ -80,6 +90,8 @@
 
 </body>
 </html>
+
+
 
 
 
