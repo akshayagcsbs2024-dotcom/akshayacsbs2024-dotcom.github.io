@@ -1,3 +1,4 @@
+/* ===== GENERAL ===== */
 * {
     margin: 0;
     padding: 0;
@@ -10,13 +11,14 @@ body {
     color: #e0e0e0;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background: #0d47a1;
+    flex-wrap: wrap;
 }
 
 nav .logo {
@@ -26,6 +28,7 @@ nav .logo {
 nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -37,7 +40,7 @@ nav ul li a {
     color: white;
 }
 
-/* HOME */
+/* ===== HOME ===== */
 .home {
     text-align: center;
     padding: 80px 20px;
@@ -48,11 +51,6 @@ nav ul li a {
     color: #90caf9;
 }
 
-.role {
-    margin-bottom: 15px;
-}
-
-/* PROFILE PHOTO */
 .profile-pic {
     width: 150px;
     height: 150px;
@@ -61,7 +59,7 @@ nav ul li a {
     margin-bottom: 15px;
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -69,9 +67,10 @@ nav ul li a {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section {
     padding: 50px 40px;
 }
@@ -81,11 +80,12 @@ h2 {
     margin-bottom: 15px;
 }
 
-.list li {
+/* ===== SKILLS ===== */
+.skills-list li {
     margin-bottom: 8px;
 }
 
-/* CARDS */
+/* ===== CARDS ===== */
 .cards {
     display: flex;
     gap: 20px;
@@ -104,7 +104,7 @@ h2 {
     transform: translateY(-8px);
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 15px;
@@ -112,11 +112,11 @@ footer {
     color: white;
 }
 
-/* MOBILE RESPONSIVE */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-
     nav {
         flex-direction: column;
+        align-items: center;
     }
 
     nav ul {
@@ -128,19 +128,45 @@ footer {
         margin: 10px 0;
     }
 
-    .cards {
-        flex-direction: column;
+    .home {
+        padding: 50px 20px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
     }
 
     section {
         padding: 30px 20px;
     }
 
-    .profile-pic {
-        width: 120px;
-        height: 120px;
+    .cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
     }
 }
+
+/* VERY SMALL SCREEN TEXT ADJUST */
+@media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    p { font-size: 16px; }
+}
+
+
 
 
 
