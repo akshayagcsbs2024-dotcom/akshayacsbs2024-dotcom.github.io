@@ -6,8 +6,8 @@
 }
 
 body {
-    background: #f5f7fa;
-    color: #333;
+    background: #121212;
+    color: #e0e0e0;
 }
 
 /* NAVBAR */
@@ -16,7 +16,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: #1f3c88;
+    background: #0d47a1;
 }
 
 nav .logo {
@@ -41,11 +41,34 @@ nav ul li a {
 .home {
     text-align: center;
     padding: 80px 20px;
-    background: #e8ecf5;
+    background: #1e1e1e;
 }
 
 .home span {
-    color: #1f3c88;
+    color: #90caf9;
+}
+
+.role {
+    margin-bottom: 15px;
+}
+
+/* PROFILE PHOTO */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0d47a1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 /* SECTIONS */
@@ -54,11 +77,15 @@ section {
 }
 
 h2 {
-    color: #1f3c88;
+    color: #90caf9;
     margin-bottom: 15px;
 }
 
-/* SERVICES */
+.list li {
+    margin-bottom: 8px;
+}
+
+/* CARDS */
 .cards {
     display: flex;
     gap: 20px;
@@ -66,18 +93,55 @@ h2 {
 }
 
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
-    background: #1f3c88;
+    background: #0d47a1;
     color: white;
 }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 30px 20px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
 
 
