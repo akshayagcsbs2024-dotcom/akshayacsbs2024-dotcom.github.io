@@ -1,4 +1,4 @@
-/* ===== GENERAL ===== */
+/* GENERAL */
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     overflow-y: scroll;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
     position: fixed;
     top: 0;
@@ -27,9 +27,7 @@ nav {
     flex-wrap: wrap;
 }
 
-nav .logo {
-    color: white;
-}
+nav .logo { color: white; }
 
 nav ul {
     list-style: none;
@@ -37,16 +35,14 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav ul li {
-    margin-left: 20px;
-}
+nav ul li { margin-left: 20px; }
 
 nav ul li a {
     text-decoration: none;
     color: white;
 }
 
-/* ===== SCREENS ===== */
+/* SCREENS */
 .screen {
     min-height: 100vh;
     padding: 120px 40px 60px 40px;
@@ -56,14 +52,9 @@ nav ul li a {
     scroll-snap-align: start;
 }
 
-/* ===== HOME ===== */
-.home {
-    text-align: center;
-}
-
-.home span {
-    color: #90caf9;
-}
+/* HOME */
+.home { text-align: center; }
+.home span { color: #90caf9; }
 
 .profile-pic {
     width: 150px;
@@ -73,7 +64,7 @@ nav ul li a {
     margin: 0 auto 20px;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -85,18 +76,13 @@ nav ul li a {
     width: fit-content;
 }
 
-/* ===== SECTIONS ===== */
-section h2 {
-    color: #90caf9;
-    margin-bottom: 15px;
-}
+/* HEADINGS */
+section h2 { color: #90caf9; margin-bottom: 15px; }
 
-/* ===== SKILLS ===== */
-.skills-list li {
-    margin-bottom: 8px;
-}
+/* SKILLS */
+.skills-list li { margin-bottom: 8px; }
 
-/* ===== CARDS ===== */
+/* CARDS */
 .cards {
     display: flex;
     gap: 20px;
@@ -111,11 +97,9 @@ section h2 {
     transition: transform 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-}
+.card:hover { transform: translateY(-8px); }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
@@ -123,53 +107,27 @@ footer {
     color: white;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
+    nav { flex-direction: column; align-items: center; }
+    nav ul { flex-direction: column; margin-top: 10px; }
+    nav ul li { margin: 10px 0; }
 
-    nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .screen {
-        padding: 100px 20px 40px 20px;
-    }
-
-    .profile-pic {
-        width: 120px;
-        height: 120px;
-    }
-
-    .cards {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .card {
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
+    .screen { padding: 100px 20px 40px 20px; }
+    .profile-pic { width: 120px; height: 120px; }
+    .cards { flex-direction: column; gap: 15px; }
+    .card { width: 100%; }
+    .btn { width: 100%; text-align: center; padding: 12px 0; }
 }
 
-/* VERY SMALL SCREEN TEXT */
+/* VERY SMALL SCREENS */
 @media (max-width: 480px) {
     h1 { font-size: 24px; }
     h2 { font-size: 20px; }
     p { font-size: 16px; }
 }
+
+
 
 
 
