@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshaya G | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -88,7 +92,7 @@
 <!-- Resume Section -->
 <section id="resume" class="section">
     <h2>Resume</h2>
-    <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+    <a href="resume.pdf" class="btn resume-btn" target="_blank">Download Resume</a>
 </section>
 
 <!-- Contact Section -->
@@ -108,6 +112,21 @@
 <footer>
     <p>© 2025 Akshaya G</p>
 </footer>
+
+<!-- Fade-in animation script -->
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
