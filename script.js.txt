@@ -1,0 +1,31 @@
+// Intersection Observer for section animations
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+    });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+
+// Back to Top
+const backToTopBtn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 300) backToTopBtn.style.display = "block";
+    else backToTopBtn.style.display = "none";
+});
+backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Animate skill bars
+const skillBars = document.querySelectorAll('.progress');
+window.addEventListener('scroll', () => {
+    skillBars.forEach(bar => {
+        const parentSection = bar.closest('.section');
+        const sectionTop = parentSection.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if(sectionTop < windowHeight - 100) {
+            bar.style.width = bar.getAttribute('style').match(/width: (\d+)%/)[1] + '%';
+        }
+    });
+});
