@@ -1,92 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
-body {
-    background: #f4f6f8;
-    color: #333;
-    line-height: 1.6;
-}
+body { background: #f4f6f8; color: #333; line-height: 1.6; }
 
-.header {
+/* Navbar */
+.navbar {
     background: #0a3d62;
-    color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-
-.profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.interest {
-    font-style: italic;
-    margin-top: 5px;
-}
-
-.section {
-    background: white;
-    margin: 15px auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 900px;
-    border-radius: 8px;
-}
-
-h2 {
-    color: #0a3d62;
-    margin-bottom: 10px;
-}
-
-.skills {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.skills div {
-    flex: 1;
-}
-
-ul {
-    margin-left: 20px;
-}
-
-.project {
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    background: #0a3d62;
+.navbar a {
     color: white;
-    padding: 10px 15px;
+    margin: 0 15px;
     text-decoration: none;
-    border-radius: 5px;
+    font-weight: bold;
 }
+.navbar a:hover { text-decoration: underline; }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #0a3d62;
-    color: white;
-    margin-top: 20px;
-}
+/* Header */
+.header { background: #0a3d62; color: white; text-align: center; padding: 40px 15px; }
+.profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.header h1 { font-size: 28px; margin: 10px 0; }
+.header p { font-size: 16px; margin-bottom: 15px; }
+.header .btn { background: #fff; color: #0a3d62; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 
-/* Mobile Friendly */
+/* Sections */
+.section { background: white; margin: 15px auto; padding: 20px; width: 90%; max-width: 900px; border-radius: 8px; }
+.section h2 { color: #0a3d62; text-align: center; margin-bottom: 15px; }
+
+/* Skills */
+.skills { display: flex; gap: 20px; flex-wrap: wrap; }
+.skills div { flex: 1; }
+ul { margin-left: 20px; }
+
+/* Projects */
+.project { margin-bottom: 15px; }
+
+/* Buttons */
+.btn { display: inline-block; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; }
+
+/* Footer */
+footer { text-align: center; padding: 15px; background: #0a3d62; color: white; margin-top: 20px; }
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
-    .skills {
-        flex-direction: column;
-    }
-
-    .header h1 {
-        font-size: 24px;
-    }
+    .skills { flex-direction: column; }
+    .header h1 { font-size: 24px; }
+    .profile-img { width: 100px; height: 100px; }
+    .section { padding: 15px; }
 }
