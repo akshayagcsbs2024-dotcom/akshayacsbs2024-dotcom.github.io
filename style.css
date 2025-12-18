@@ -25,12 +25,19 @@ body {
 }
 .navbar a:hover { color: #ff66a3; text-decoration: underline; }
 
-/* Header */
+/* Hero Section with animated gradient */
 .header {
-    background: #f8c8dc;
+    background: linear-gradient(-45deg, #f8c8dc, #ffe6f0, #ffc0cb, #ffd6e0);
+    background-size: 400% 400%;
     color: #660033;
     text-align: center;
     padding: 50px 15px;
+    animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 .profile-img {
     width: 120px;
