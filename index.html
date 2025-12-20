@@ -6,118 +6,168 @@
 <title>Akshaya G | Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+*{
+ margin:0;padding:0;box-sizing:border-box;
+ font-family:Poppins,Segoe UI,sans-serif;
+ cursor:none;
+}
 
-/* THEME VARIABLES */
+/* DARK NEON THEME */
 :root{
- --bg:#0f0f14;
- --card:#1a1a24;
- --text:#eaeaea;
+ --bg:#07070d;
+ --card:#12121f;
+ --text:#f2f2f2;
  --pink:#ff2f92;
  --pink2:#ff77bd;
-}
-.light{
- --bg:#fff0f6;
- --card:#ffffff;
- --text:#222;
+ --glow:0 0 25px rgba(255,47,146,0.6);
 }
 
 body{
- background:var(--bg);
+ background:radial-gradient(circle at top,#141422,#000);
  color:var(--text);
- transition:0.4s;
+ overflow-x:hidden;
+}
+
+/* NEON CURSOR */
+.cursor{
+ width:20px;height:20px;
+ border-radius:50%;
+ background:rgba(255,47,146,0.6);
+ position:fixed;
+ pointer-events:none;
+ box-shadow:0 0 25px var(--pink);
+ transform:translate(-50%,-50%);
+ z-index:999;
 }
 
 /* HEADER */
 header{
- background:linear-gradient(135deg,var(--pink),#8b1c4a);
- padding:35px 15px;
+ background:linear-gradient(135deg,#ff2f92,#6b183b);
+ padding:45px 15px;
  text-align:center;
+ box-shadow:var(--glow);
 }
+
 .profile-pic{
- width:115px;height:115px;border-radius:50%;
+ width:125px;height:125px;border-radius:50%;
  border:4px solid var(--pink2);
- box-shadow:0 0 25px var(--pink);
+ box-shadow:0 0 45px var(--pink);
+ animation:pulse 3s infinite;
 }
-nav{margin-top:15px}
+
+@keyframes pulse{
+ 0%{box-shadow:0 0 20px var(--pink)}
+ 50%{box-shadow:0 0 50px var(--pink)}
+ 100%{box-shadow:0 0 20px var(--pink)}
+}
+
+nav{margin-top:18px}
 nav button{
  background:none;border:none;
  color:white;font-size:1rem;
- margin:0 10px;cursor:pointer
+ margin:0 14px;
 }
-nav button:hover{text-decoration:underline}
 
-/* TOGGLE */
-.toggle{
- position:fixed;top:15px;right:15px;
- background:black;color:white;
- padding:6px 14px;border-radius:20px;
- cursor:pointer;font-size:0.9rem;
+/* SLIDING TEXT */
+.slider{
+ margin-top:8px;
+ height:28px;overflow:hidden;
+}
+.slider span{
+ display:block;
+ color:#ffd1e8;
+ font-weight:600;
+ animation:slide 6s infinite;
+}
+@keyframes slide{
+ 0%{transform:translateY(0)}
+ 33%{transform:translateY(-30px)}
+ 66%{transform:translateY(-60px)}
+ 100%{transform:translateY(0)}
 }
 
 /* PAGES */
-.page{display:none;padding:20px;animation:fade 0.5s}
+.page{display:none;padding:25px}
 .page.active{display:block}
 
+/* SECTION */
 section{
- background:var(--card);
- margin:15px 0;
- padding:20px;
- border-radius:14px;
+ background:linear-gradient(145deg,#17172a,#0e0e18);
+ margin:20px 0;
+ padding:24px;
+ border-radius:20px;
+ box-shadow:0 0 25px rgba(0,0,0,0.8);
+ opacity:0;
+ transform:translateY(40px);
+ transition:1s;
 }
 
-/* COMMON */
-h2{color:var(--pink);margin-bottom:10px}
-.btn{
- display:inline-block;margin-top:10px;
- padding:9px 18px;border-radius:25px;
- background:var(--pink);color:white;text-decoration:none
+section.show{
+ opacity:1;
+ transform:translateY(0);
 }
-.btn:hover{opacity:0.8}
+
+h2{color:var(--pink);margin-bottom:10px}
 
 /* SKILLS */
 .skills span{
  display:inline-block;
- background:#2a2a3d;
- padding:8px 14px;
- border-radius:20px;
- margin:6px;color:var(--pink2)
+ background:#23233b;
+ padding:10px 18px;
+ border-radius:25px;
+ margin:6px;
+ color:#ffd1e8;
+ box-shadow:0 0 12px rgba(255,47,146,0.3);
 }
 
 /* PROJECT */
 .project{
- background:#222232;
- padding:15px;border-radius:12px;margin-bottom:12px
+ background:#1e1e32;
+ padding:16px;
+ border-radius:16px;
+ margin-bottom:14px;
+ box-shadow:0 0 15px rgba(255,47,146,0.3);
 }
 
-/* TIMELINE */
-.timeline{
- border-left:3px solid var(--pink);
- padding-left:15px
-}
-.timeline div{
- margin-bottom:15px
+/* BUTTON */
+.btn{
+ display:inline-block;
+ margin-top:10px;
+ padding:10px 24px;
+ border-radius:30px;
+ background:linear-gradient(135deg,var(--pink),var(--pink2));
+ color:black;font-weight:600;
+ text-decoration:none;
+ box-shadow:var(--glow);
 }
 
 /* FOOTER */
-footer{text-align:center;padding:15px;color:gray}
+footer{
+ text-align:center;
+ padding:18px;
+ color:#aaa;
+}
 
-/* ANIM */
-@keyframes fade{
- from{opacity:0;transform:translateY(20px)}
- to{opacity:1;transform:translateY(0)}
+/* MOBILE */
+@media(max-width:600px){
+ header h1{font-size:1.5rem}
 }
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleTheme()">🌙 / ☀️</div>
+<div class="cursor"></div>
 
 <header>
  <img src="profile.jpg" class="profile-pic">
  <h1>Akshaya G</h1>
- <p id="typing"></p>
+
+ <div class="slider">
+  <span>B.Tech CSBS Student</span>
+  <span>Programmer & Analyst</span>
+  <span>Future Tech Professional</span>
+ </div>
 
  <nav>
   <button onclick="showPage('home')">Home</button>
@@ -128,34 +178,34 @@ footer{text-align:center;padding:15px;color:gray}
 
 <!-- HOME -->
 <div id="home" class="page active">
- <section>
+ <section class="reveal">
   <h2>Objective</h2>
   <p>
-  To showcase my CSBS academic journey, skills, and projects through
-  a modern and innovative portfolio for internships and career growth.
+   To showcase my CSBS academic journey, skills, and projects through
+   a visually innovative and professional digital portfolio.
   </p>
  </section>
 
- <section>
-  <h2>Why This Portfolio?</h2>
-  ✔ Single-file innovation <br>
-  ✔ 3-page experience <br>
-  ✔ Dark / Light mode <br>
-  ✔ CSBS focused design
+ <section class="reveal">
+  <h2>Highlights & Strengths</h2>
+  ✔ Strong CSBS foundation <br>
+  ✔ Programming + Business mindset <br>
+  ✔ Creative problem-solving <br>
+  ✔ Internship-ready profile
  </section>
 </div>
 
 <!-- PROFILE -->
 <div id="profile" class="page">
- <section>
+ <section class="reveal">
   <h2>About Me</h2>
   <p>
-  I am a Computer Science and Business Systems student passionate about
-  programming, databases, and technology-driven solutions.
+   I am a Computer Science and Business Systems student passionate about
+   programming, databases, and technology-driven solutions.
   </p>
  </section>
 
- <section>
+ <section class="reveal">
   <h2>Skills</h2>
   <div class="skills">
    <span>C</span><span>Java</span><span>Python</span>
@@ -164,26 +214,22 @@ footer{text-align:center;padding:15px;color:gray}
   </div>
  </section>
 
- <section>
-  <h2>My Learning Journey</h2>
-  <div class="timeline">
-   <div><b>2023</b> – Joined B.Tech CSBS</div>
-   <div><b>2024</b> – Programming & DB skills</div>
-   <div><b>2025</b> – Portfolio & projects</div>
-  </div>
+ <section class="reveal">
+  <h2>Learning Journey</h2>
+  <p>2023 – Joined CSBS</p>
+  <p>2024 – Programming & DB skills</p>
+  <p>2025 – Portfolio & projects</p>
  </section>
 
- <section>
+ <section class="reveal">
   <h2>Resume</h2>
-  <a href="Akshaya_Resume.pdf" target="_blank" class="btn">
-   View / Download Resume
-  </a>
+  <a href="Akshaya_Resume.pdf" target="_blank" class="btn">View Resume</a>
  </section>
 </div>
 
 <!-- PROJECTS -->
 <div id="projects" class="page">
- <section>
+ <section class="reveal">
   <h2>Projects</h2>
 
   <div class="project">
@@ -199,7 +245,7 @@ footer{text-align:center;padding:15px;color:gray}
   </div>
  </section>
 
- <section>
+ <section class="reveal">
   <h2>Contact</h2>
   <p>Email: akshayagopi0712@gmail.com</p>
   <p>
@@ -225,23 +271,23 @@ function showPage(id){
  document.querySelectorAll('.page')
  .forEach(p=>p.classList.remove('active'));
  document.getElementById(id).classList.add('active');
+ reveal();
 }
 
-/* THEME TOGGLE */
-function toggleTheme(){
- document.body.classList.toggle("light");
-}
+/* NEON CURSOR */
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+ cursor.style.left=e.clientX+'px';
+ cursor.style.top=e.clientY+'px';
+});
 
-/* TYPING EFFECT */
-const text="B.Tech CSBS | Programmer | Future Tech Professional";
-let i=0;
-function typing(){
- if(i<text.length){
-  document.getElementById("typing").innerHTML+=text.charAt(i);
-  i++; setTimeout(typing,80);
- }
+/* SCROLL REVEAL */
+function reveal(){
+ document.querySelectorAll('.reveal').forEach(sec=>{
+  sec.classList.add('show');
+ });
 }
-typing();
+reveal();
 </script>
 
 </body>
