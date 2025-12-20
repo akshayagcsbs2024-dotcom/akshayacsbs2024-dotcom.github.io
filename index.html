@@ -1,265 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshaya G | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshaya G | Portfolio</title>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
 
-    <!-- INTERNAL CSS (All styles inside HTML) -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
+/* THEME VARIABLES */
+:root{
+ --bg:#0f0f14;
+ --card:#1a1a24;
+ --text:#eaeaea;
+ --pink:#ff2f92;
+ --pink2:#ff77bd;
+}
+.light{
+ --bg:#fff0f6;
+ --card:#ffffff;
+ --text:#222;
+}
 
-        body {
-            background-color: #0f0f14;
-            color: #eaeaea;
-            line-height: 1.6;
-        }
+body{
+ background:var(--bg);
+ color:var(--text);
+ transition:0.4s;
+}
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #ff2f92, #8b1c4a);
-            padding: 40px 15px;
-            text-align: center;
-        }
+/* HEADER */
+header{
+ background:linear-gradient(135deg,var(--pink),#8b1c4a);
+ padding:35px 15px;
+ text-align:center;
+}
+.profile-pic{
+ width:115px;height:115px;border-radius:50%;
+ border:4px solid var(--pink2);
+ box-shadow:0 0 25px var(--pink);
+}
+nav{margin-top:15px}
+nav button{
+ background:none;border:none;
+ color:white;font-size:1rem;
+ margin:0 10px;cursor:pointer
+}
+nav button:hover{text-decoration:underline}
 
-        .profile-container {
-            max-width: 420px;
-            margin: auto;
-        }
+/* TOGGLE */
+.toggle{
+ position:fixed;top:15px;right:15px;
+ background:black;color:white;
+ padding:6px 14px;border-radius:20px;
+ cursor:pointer;font-size:0.9rem;
+}
 
-        .profile-pic {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #ff77bd;
-            margin-bottom: 15px;
-            box-shadow: 0 0 25px rgba(255, 77, 166, 0.8);
-            animation: glow 2.5s infinite alternate;
-        }
+/* PAGES */
+.page{display:none;padding:20px;animation:fade 0.5s}
+.page.active{display:block}
 
-        @keyframes glow {
-            from { box-shadow: 0 0 15px rgba(255, 77, 166, 0.4); }
-            to { box-shadow: 0 0 30px rgba(255, 77, 166, 1); }
-        }
+section{
+ background:var(--card);
+ margin:15px 0;
+ padding:20px;
+ border-radius:14px;
+}
 
-        header h1 {
-            font-size: 2.2rem;
-            color: white;
-        }
+/* COMMON */
+h2{color:var(--pink);margin-bottom:10px}
+.btn{
+ display:inline-block;margin-top:10px;
+ padding:9px 18px;border-radius:25px;
+ background:var(--pink);color:white;text-decoration:none
+}
+.btn:hover{opacity:0.8}
 
-        header p {
-            margin-top: 5px;
-            color: #ffe3f0;
-        }
+/* SKILLS */
+.skills span{
+ display:inline-block;
+ background:#2a2a3d;
+ padding:8px 14px;
+ border-radius:20px;
+ margin:6px;color:var(--pink2)
+}
 
-        .interest {
-            font-style: italic;
-            margin-top: 10px;
-        }
+/* PROJECT */
+.project{
+ background:#222232;
+ padding:15px;border-radius:12px;margin-bottom:12px
+}
 
-        /* Sections */
-        section {
-            background: #1a1a24;
-            margin: 18px;
-            padding: 22px;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(255, 47, 146, 0.15);
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1s ease forwards;
-        }
+/* TIMELINE */
+.timeline{
+ border-left:3px solid var(--pink);
+ padding-left:15px
+}
+.timeline div{
+ margin-bottom:15px
+}
 
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* FOOTER */
+footer{text-align:center;padding:15px;color:gray}
 
-        h2 {
-            color: #ff4da6;
-            margin-bottom: 12px;
-        }
-
-        /* Skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            background: #2a2a3d;
-            padding: 10px 16px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #ff77bd;
-            transition: 0.3s;
-        }
-
-        .skill.soft {
-            color: #ffd1e8;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 18px rgba(255, 77, 166, 0.6);
-        }
-
-        /* Projects */
-        .project {
-            background: #222232;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            box-shadow: 0 0 18px rgba(255, 77, 166, 0.5);
-            transform: translateY(-5px);
-        }
-
-        /* Links & Button */
-        a {
-            color: #ff77bd;
-            text-decoration: none;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #ff2f92;
-            color: white;
-            padding: 9px 18px;
-            border-radius: 25px;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #ff4da6;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .profile-pic { width: 110px; height: 110px; }
-            section { margin: 12px; }
-        }
-    </style>
+/* ANIM */
+@keyframes fade{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:translateY(0)}
+}
+</style>
 </head>
+
 <body>
 
+<div class="toggle" onclick="toggleTheme()">🌙 / ☀️</div>
+
 <header>
-    <div class="profile-container">
-        <img src="profile.jpg" alt="Akshaya G" class="profile-pic">
-        <h1>Akshaya G</h1>
-        <p>B.Tech Computer Science and Business Systems</p>
-        <p>Jerusalem College of Engineering</p>
-        <p class="interest">Interested in Programming, Data & Business Technology</p>
-    </div>
+ <img src="profile.jpg" class="profile-pic">
+ <h1>Akshaya G</h1>
+ <p id="typing"></p>
+
+ <nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('profile')">Profile</button>
+  <button onclick="showPage('projects')">Projects</button>
+ </nav>
 </header>
 
-<section>
-    <h2>Objective</h2>
-    <p>
-        To create a professional portfolio that highlights my academic learning,
-        technical skills, and course-related projects in Computer Science and
-        Business Systems, helping me track my growth and prepare for internships
-        and future career opportunities.
-    </p>
-</section>
+<!-- HOME -->
+<div id="home" class="page active">
+ <section>
+  <h2>Objective</h2>
+  <p>
+  To showcase my CSBS academic journey, skills, and projects through
+  a modern and innovative portfolio for internships and career growth.
+  </p>
+ </section>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        I am a Computer Science and Business Systems student with a strong interest in
-        programming, data handling, and problem solving.
-    </p>
-    <p>
-        <strong>Strengths:</strong> Quick learner, self-motivated, teamwork<br>
-        <strong>Hobbies:</strong> Learning new technologies, designing websites
-    </p>
-</section>
+ <section>
+  <h2>Why This Portfolio?</h2>
+  ✔ Single-file innovation <br>
+  ✔ 3-page experience <br>
+  ✔ Dark / Light mode <br>
+  ✔ CSBS focused design
+ </section>
+</div>
 
-<section>
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill"><i class="fa-brands fa-c"></i> C</div>
-        <div class="skill"><i class="fa-brands fa-java"></i> Java</div>
-        <div class="skill"><i class="fa-brands fa-python"></i> Python</div>
-        <div class="skill"><i class="fa-brands fa-html5"></i> HTML</div>
-        <div class="skill"><i class="fa-brands fa-css3-alt"></i> CSS</div>
-        <div class="skill"><i class="fa-solid fa-database"></i> SQL</div>
-        <div class="skill soft">Communication</div>
-        <div class="skill soft">Teamwork</div>
-        <div class="skill soft">Time Management</div>
-    </div>
-</section>
+<!-- PROFILE -->
+<div id="profile" class="page">
+ <section>
+  <h2>About Me</h2>
+  <p>
+  I am a Computer Science and Business Systems student passionate about
+  programming, databases, and technology-driven solutions.
+  </p>
+ </section>
 
-<section>
-    <h2>Projects</h2>
+ <section>
+  <h2>Skills</h2>
+  <div class="skills">
+   <span>C</span><span>Java</span><span>Python</span>
+   <span>HTML</span><span>CSS</span><span>SQL</span>
+   <span>Communication</span><span>Teamwork</span>
+  </div>
+ </section>
 
-    <div class="project">
-        <h3>Student Portfolio Website</h3>
-        <p>Designed a responsive portfolio to showcase skills and resume.</p>
-        <p><strong>Tools:</strong> HTML, CSS, VS Code</p>
-    </div>
+ <section>
+  <h2>My Learning Journey</h2>
+  <div class="timeline">
+   <div><b>2023</b> – Joined B.Tech CSBS</div>
+   <div><b>2024</b> – Programming & DB skills</div>
+   <div><b>2025</b> – Portfolio & projects</div>
+  </div>
+ </section>
 
-    <div class="project">
-        <h3>Basic Data Analysis using Python</h3>
-        <p>Performed data analysis and visualization using Pandas.</p>
-        <p><strong>Tools:</strong> Python, Pandas, Jupyter</p>
-    </div>
+ <section>
+  <h2>Resume</h2>
+  <a href="Akshaya_Resume.pdf" target="_blank" class="btn">
+   View / Download Resume
+  </a>
+ </section>
+</div>
 
-    <div class="project">
-        <h3>SQL Database Practice</h3>
-        <p>Practiced SQL queries for structured data handling.</p>
-        <p><strong>Tools:</strong> MySQL, Workbench</p>
-    </div>
-</section>
+<!-- PROJECTS -->
+<div id="projects" class="page">
+ <section>
+  <h2>Projects</h2>
 
-<section>
-    <h2>Resume</h2>
-    <a href="Akshaya_Resume.pdf" target="_blank" class="btn">View / Download Resume</a>
-</section>
+  <div class="project">
+   <b>Portfolio Website</b><br>HTML, CSS
+  </div>
 
-<section>
-    <h2>Contact</h2>
-    <p><strong>Email:</strong> akshayagopi0712@gmail.com</p>
-    <p>
-        <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371" target="_blank">View Profile</a>
-    </p>
-    <p>
-        <strong>GitHub:</strong>
-        <a href="https://github.com/akshayagcsbs2024-dotcom" target="_blank">
-            akshayagcsbs2024-dotcom
-        </a>
-    </p>
-</section>
+  <div class="project">
+   <b>Data Analysis</b><br>Python, Pandas
+  </div>
+
+  <div class="project">
+   <b>SQL Practice</b><br>MySQL
+  </div>
+ </section>
+
+ <section>
+  <h2>Contact</h2>
+  <p>Email: akshayagopi0712@gmail.com</p>
+  <p>
+   LinkedIn:
+   <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371"
+      style="color:var(--pink2)">View</a>
+  </p>
+  <p>
+   GitHub:
+   <a href="https://github.com/akshayagcsbs2024-dotcom"
+      style="color:var(--pink2)">Profile</a>
+  </p>
+ </section>
+</div>
 
 <footer>
-    <p>© 2025 Akshaya G | CSBS Portfolio</p>
+© 2025 Akshaya G | CSBS Portfolio
 </footer>
+
+<script>
+/* PAGE SWITCH */
+function showPage(id){
+ document.querySelectorAll('.page')
+ .forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+
+/* THEME TOGGLE */
+function toggleTheme(){
+ document.body.classList.toggle("light");
+}
+
+/* TYPING EFFECT */
+const text="B.Tech CSBS | Programmer | Future Tech Professional";
+let i=0;
+function typing(){
+ if(i<text.length){
+  document.getElementById("typing").innerHTML+=text.charAt(i);
+  i++; setTimeout(typing,80);
+ }
+}
+typing();
+</script>
 
 </body>
 </html>
