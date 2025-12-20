@@ -7,78 +7,48 @@
 
 <style>
 *{
- margin:0;padding:0;box-sizing:border-box;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
  font-family:Poppins,Segoe UI,sans-serif;
- cursor:none;
 }
 
-/* DARK NEON THEME */
-:root{
- --bg:#07070d;
- --card:#12121f;
- --text:#f2f2f2;
- --pink:#ff2f92;
- --pink2:#ff77bd;
- --glow:0 0 25px rgba(255,47,146,0.6);
-}
-
+/* VERY DARK THEME */
 body{
- background:radial-gradient(circle at top,#141422,#000);
- color:var(--text);
- overflow-x:hidden;
+ background:#05050a;
+ color:#f5f5f5;
 }
 
-/* NEON CURSOR */
-.cursor{
- width:20px;height:20px;
- border-radius:50%;
- background:rgba(255,47,146,0.6);
- position:fixed;
- pointer-events:none;
- box-shadow:0 0 25px var(--pink);
- transform:translate(-50%,-50%);
- z-index:999;
-}
-
-/* HEADER */
+/* HEADER WITH STRONG LIGHT */
 header{
- background:linear-gradient(135deg,#ff2f92,#6b183b);
- padding:45px 15px;
+ background:radial-gradient(circle at top,#ff2f92,#3a0b22,#000);
  text-align:center;
- box-shadow:var(--glow);
+ padding:50px 20px;
+ box-shadow:0 0 50px #ff2f92;
 }
 
-.profile-pic{
- width:125px;height:125px;border-radius:50%;
- border:4px solid var(--pink2);
- box-shadow:0 0 45px var(--pink);
- animation:pulse 3s infinite;
+.profile{
+ width:130px;
+ height:130px;
+ border-radius:50%;
+ border:4px solid #ff77bd;
+ box-shadow:0 0 40px #ff2f92;
 }
 
-@keyframes pulse{
- 0%{box-shadow:0 0 20px var(--pink)}
- 50%{box-shadow:0 0 50px var(--pink)}
- 100%{box-shadow:0 0 20px var(--pink)}
-}
-
-nav{margin-top:18px}
-nav button{
- background:none;border:none;
- color:white;font-size:1rem;
- margin:0 14px;
-}
-
-/* SLIDING TEXT */
+/* SLIDING TEXT – VERY CLEAR */
 .slider{
- margin-top:8px;
- height:28px;overflow:hidden;
-}
-.slider span{
- display:block;
- color:#ffd1e8;
+ margin-top:10px;
+ height:30px;
+ overflow:hidden;
+ font-size:1.1rem;
  font-weight:600;
+ color:#ffd1e8;
+}
+
+.slider div{
  animation:slide 6s infinite;
 }
+
 @keyframes slide{
  0%{transform:translateY(0)}
  33%{transform:translateY(-30px)}
@@ -86,87 +56,90 @@ nav button{
  100%{transform:translateY(0)}
 }
 
-/* PAGES */
-.page{display:none;padding:25px}
-.page.active{display:block}
+nav{
+ margin-top:20px;
+}
 
-/* SECTION */
-section{
- background:linear-gradient(145deg,#17172a,#0e0e18);
- margin:20px 0;
- padding:24px;
+nav button{
+ background:none;
+ border:2px solid #ff77bd;
+ color:white;
+ padding:6px 16px;
+ margin:5px;
  border-radius:20px;
- box-shadow:0 0 25px rgba(0,0,0,0.8);
- opacity:0;
- transform:translateY(40px);
- transition:1s;
+ cursor:pointer;
 }
 
-section.show{
- opacity:1;
- transform:translateY(0);
+/* PAGES */
+.page{
+ display:none;
+ padding:25px;
+ animation:fade 0.6s;
+}
+.page.active{
+ display:block;
 }
 
-h2{color:var(--pink);margin-bottom:10px}
+@keyframes fade{
+ from{opacity:0;transform:translateY(40px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+/* CARD */
+.card{
+ background:#0e0e18;
+ margin-bottom:20px;
+ padding:20px;
+ border-radius:18px;
+ box-shadow:0 0 25px rgba(255,47,146,0.4);
+}
+
+h2{
+ color:#ff2f92;
+ margin-bottom:10px;
+}
 
 /* SKILLS */
 .skills span{
  display:inline-block;
- background:#23233b;
- padding:10px 18px;
- border-radius:25px;
- margin:6px;
+ background:#1f1f33;
  color:#ffd1e8;
- box-shadow:0 0 12px rgba(255,47,146,0.3);
+ padding:8px 16px;
+ margin:6px;
+ border-radius:20px;
+ box-shadow:0 0 12px rgba(255,47,146,0.4);
 }
 
 /* PROJECT */
 .project{
- background:#1e1e32;
- padding:16px;
- border-radius:16px;
- margin-bottom:14px;
+ background:#1a1a2e;
+ padding:14px;
+ border-radius:14px;
+ margin-bottom:10px;
  box-shadow:0 0 15px rgba(255,47,146,0.3);
-}
-
-/* BUTTON */
-.btn{
- display:inline-block;
- margin-top:10px;
- padding:10px 24px;
- border-radius:30px;
- background:linear-gradient(135deg,var(--pink),var(--pink2));
- color:black;font-weight:600;
- text-decoration:none;
- box-shadow:var(--glow);
 }
 
 /* FOOTER */
 footer{
  text-align:center;
- padding:18px;
  color:#aaa;
-}
-
-/* MOBILE */
-@media(max-width:600px){
- header h1{font-size:1.5rem}
+ padding:15px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
-
 <header>
- <img src="profile.jpg" class="profile-pic">
+ <img src="profile.jpg" class="profile">
  <h1>Akshaya G</h1>
 
  <div class="slider">
-  <span>B.Tech CSBS Student</span>
-  <span>Programmer & Analyst</span>
-  <span>Future Tech Professional</span>
+  <div>
+   B.Tech CSBS Student<br>
+   Programmer & Analyst<br>
+   Future Tech Professional
+  </div>
  </div>
 
  <nav>
@@ -178,87 +151,80 @@ footer{
 
 <!-- HOME -->
 <div id="home" class="page active">
- <section class="reveal">
+ <div class="card">
   <h2>Objective</h2>
   <p>
-   To showcase my CSBS academic journey, skills, and projects through
-   a visually innovative and professional digital portfolio.
+   To present my CSBS skills, academic growth, and projects
+   using an innovative and visually attractive digital portfolio.
   </p>
- </section>
+ </div>
 
- <section class="reveal">
+ <div class="card">
   <h2>Highlights & Strengths</h2>
-  ✔ Strong CSBS foundation <br>
-  ✔ Programming + Business mindset <br>
-  ✔ Creative problem-solving <br>
-  ✔ Internship-ready profile
- </section>
+  ✔ Strong CSBS foundation<br>
+  ✔ Programming + Business thinking<br>
+  ✔ Creative & consistent learner<br>
+  ✔ Internship ready profile
+ </div>
 </div>
 
 <!-- PROFILE -->
 <div id="profile" class="page">
- <section class="reveal">
+ <div class="card">
   <h2>About Me</h2>
   <p>
-   I am a Computer Science and Business Systems student passionate about
-   programming, databases, and technology-driven solutions.
+   I am a Computer Science and Business Systems student
+   interested in programming, databases, and analytics.
   </p>
- </section>
+ </div>
 
- <section class="reveal">
+ <div class="card">
   <h2>Skills</h2>
   <div class="skills">
    <span>C</span><span>Java</span><span>Python</span>
    <span>HTML</span><span>CSS</span><span>SQL</span>
    <span>Communication</span><span>Teamwork</span>
   </div>
- </section>
+ </div>
 
- <section class="reveal">
-  <h2>Learning Journey</h2>
-  <p>2023 – Joined CSBS</p>
-  <p>2024 – Programming & DB skills</p>
-  <p>2025 – Portfolio & projects</p>
- </section>
-
- <section class="reveal">
+ <div class="card">
   <h2>Resume</h2>
-  <a href="Akshaya_Resume.pdf" target="_blank" class="btn">View Resume</a>
- </section>
+  <a href="Akshaya_Resume.pdf" style="color:#ff77bd">View Resume</a>
+ </div>
 </div>
 
 <!-- PROJECTS -->
 <div id="projects" class="page">
- <section class="reveal">
+ <div class="card">
   <h2>Projects</h2>
 
   <div class="project">
-   <b>Portfolio Website</b><br>HTML, CSS
+   <b>Portfolio Website</b><br>HTML & CSS
   </div>
 
   <div class="project">
-   <b>Data Analysis</b><br>Python, Pandas
+   <b>Data Analysis</b><br>Python & Pandas
   </div>
 
   <div class="project">
    <b>SQL Practice</b><br>MySQL
   </div>
- </section>
+ </div>
 
- <section class="reveal">
+ <div class="card">
   <h2>Contact</h2>
   <p>Email: akshayagopi0712@gmail.com</p>
   <p>
    LinkedIn:
    <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371"
-      style="color:var(--pink2)">View</a>
+      style="color:#ff77bd">View</a>
   </p>
   <p>
    GitHub:
    <a href="https://github.com/akshayagcsbs2024-dotcom"
-      style="color:var(--pink2)">Profile</a>
+      style="color:#ff77bd">Profile</a>
   </p>
- </section>
+ </div>
 </div>
 
 <footer>
@@ -266,28 +232,11 @@ footer{
 </footer>
 
 <script>
-/* PAGE SWITCH */
 function showPage(id){
  document.querySelectorAll('.page')
  .forEach(p=>p.classList.remove('active'));
  document.getElementById(id).classList.add('active');
- reveal();
 }
-
-/* NEON CURSOR */
-const cursor=document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
- cursor.style.left=e.clientX+'px';
- cursor.style.top=e.clientY+'px';
-});
-
-/* SCROLL REVEAL */
-function reveal(){
- document.querySelectorAll('.reveal').forEach(sec=>{
-  sec.classList.add('show');
- });
-}
-reveal();
 </script>
 
 </body>
