@@ -13,18 +13,17 @@
  font-family:Poppins,Segoe UI,sans-serif;
 }
 
-/* VERY DARK THEME */
 body{
- background:#05050a;
+ background:radial-gradient(circle at top,#0b0014,#05050a,#000);
  color:#f5f5f5;
 }
 
-/* HEADER WITH STRONG LIGHT */
+/* HEADER */
 header{
  background:radial-gradient(circle at top,#ff2f92,#3a0b22,#000);
  text-align:center;
  padding:50px 20px;
- box-shadow:0 0 50px #ff2f92;
+ box-shadow:0 0 60px #ff2f92;
 }
 
 .profile{
@@ -35,7 +34,7 @@ header{
  box-shadow:0 0 40px #ff2f92;
 }
 
-/* SLIDING TEXT – VERY CLEAR */
+/* SLIDER */
 .slider{
  margin-top:10px;
  height:30px;
@@ -56,9 +55,7 @@ header{
  100%{transform:translateY(0)}
 }
 
-nav{
- margin-top:20px;
-}
+nav{margin-top:20px;}
 
 nav button{
  background:none;
@@ -76,9 +73,7 @@ nav button{
  padding:25px;
  animation:fade 0.6s;
 }
-.page.active{
- display:block;
-}
+.page.active{display:block;}
 
 @keyframes fade{
  from{opacity:0;transform:translateY(40px)}
@@ -94,10 +89,7 @@ nav button{
  box-shadow:0 0 25px rgba(255,47,146,0.4);
 }
 
-h2{
- color:#ff2f92;
- margin-bottom:10px;
-}
+h2{color:#ff2f92;margin-bottom:10px;}
 
 /* SKILLS */
 .skills span{
@@ -110,16 +102,35 @@ h2{
  box-shadow:0 0 12px rgba(255,47,146,0.4);
 }
 
-/* PROJECT */
-.project{
- background:#1a1a2e;
- padding:14px;
- border-radius:14px;
- margin-bottom:10px;
- box-shadow:0 0 15px rgba(255,47,146,0.3);
+/* CERTIFICATES */
+.certs img{
+ width:100%;
+ max-width:260px;
+ border-radius:12px;
+ box-shadow:0 0 20px #ff2f92;
+ margin:10px 0;
 }
 
-/* FOOTER */
+/* FLOATING GLITTER BUTTON */
+.floating{
+ position:fixed;
+ bottom:20px;
+ right:20px;
+ background:#ff2f92;
+ padding:14px 18px;
+ border-radius:50%;
+ color:white;
+ font-size:20px;
+ box-shadow:0 0 25px #ff2f92;
+ animation:glow 2s infinite alternate;
+ cursor:pointer;
+}
+
+@keyframes glow{
+ from{box-shadow:0 0 15px #ff2f92}
+ to{box-shadow:0 0 35px #ff77bd}
+}
+
 footer{
  text-align:center;
  color:#aaa;
@@ -146,6 +157,8 @@ footer{
   <button onclick="showPage('home')">Home</button>
   <button onclick="showPage('profile')">Profile</button>
   <button onclick="showPage('projects')">Projects</button>
+  <button onclick="showPage('achievements')">Achievements</button>
+  <button onclick="showPage('resume')">Resume</button>
  </nav>
 </header>
 
@@ -154,17 +167,9 @@ footer{
  <div class="card">
   <h2>Objective</h2>
   <p>
-   To present my CSBS skills, academic growth, and projects
-   using an innovative and visually attractive digital portfolio.
+   To build a strong career in Computer Science and Business Systems by applying
+   programming, analytics, and problem-solving skills.
   </p>
- </div>
-
- <div class="card">
-  <h2>Highlights & Strengths</h2>
-  ✔ Strong CSBS foundation<br>
-  ✔ Programming + Business thinking<br>
-  ✔ Creative & consistent learner<br>
-  ✔ Internship ready profile
  </div>
 </div>
 
@@ -173,8 +178,8 @@ footer{
  <div class="card">
   <h2>About Me</h2>
   <p>
-   I am a Computer Science and Business Systems student
-   interested in programming, databases, and analytics.
+   CSBS student passionate about software development, databases,
+   and data-driven decision making.
   </p>
  </div>
 
@@ -183,13 +188,8 @@ footer{
   <div class="skills">
    <span>C</span><span>Java</span><span>Python</span>
    <span>HTML</span><span>CSS</span><span>SQL</span>
-   <span>Communication</span><span>Teamwork</span>
+   <span>Problem Solving</span><span>Communication</span>
   </div>
- </div>
-
- <div class="card">
-  <h2>Resume</h2>
-  <a href="Akshaya_Resume.pdf" style="color:#ff77bd">View Resume</a>
  </div>
 </div>
 
@@ -197,39 +197,57 @@ footer{
 <div id="projects" class="page">
  <div class="card">
   <h2>Projects</h2>
+  <p><b>Portfolio Website</b> – HTML, CSS, UI Design</p>
+  <p><b>Data Analysis</b> – Python, Pandas</p>
+  <p><b>SQL Practice</b> – MySQL queries</p>
+ </div>
+</div>
 
-  <div class="project">
-   <b>Portfolio Website</b><br>HTML & CSS
-  </div>
+<!-- ACHIEVEMENTS -->
+<div id="achievements" class="page">
+ <div class="card">
+  <h2>Certifications & Outcomes</h2>
 
-  <div class="project">
-   <b>Data Analysis</b><br>Python & Pandas
-  </div>
+  <div class="certs">
+   <img src="cert_python.jpg">
+   <p><b>Python Certification</b><br>
+   Gained strong foundation in logic, loops, functions, and data handling.</p>
 
-  <div class="project">
-   <b>SQL Practice</b><br>MySQL
+   <img src="cert_html.jpg">
+   <p><b>HTML & CSS Certification</b><br>
+   Learned responsive web design and UI development.</p>
+
+   <img src="cert_sql.jpg">
+   <p><b>SQL Certification</b><br>
+   Improved database querying and data management skills.</p>
   </div>
  </div>
+</div>
 
+<!-- RESUME -->
+<div id="resume" class="page">
  <div class="card">
-  <h2>Contact</h2>
-  <p>Email: akshayagopi0712@gmail.com</p>
-  <p>
-   LinkedIn:
-   <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371"
-      style="color:#ff77bd">View</a>
-  </p>
-  <p>
-   GitHub:
-   <a href="https://github.com/akshayagcsbs2024-dotcom"
-      style="color:#ff77bd">Profile</a>
-  </p>
+  <h2>My Resume</h2>
+
+  <iframe src="resume.pdf"
+   width="100%" height="500px"
+   style="border-radius:12px;border:2px solid #ff2f92;">
+  </iframe>
+
+  <br><br>
+  <a href="resume.pdf" download
+   style="padding:10px 20px;background:#ff2f92;
+   color:white;border-radius:20px;text-decoration:none;">
+   ⬇ Download Resume
+  </a>
  </div>
 </div>
 
 <footer>
 © 2025 Akshaya G | CSBS Portfolio
 </footer>
+
+<div class="floating" onclick="showPage('profile')">✨</div>
 
 <script>
 function showPage(id){
