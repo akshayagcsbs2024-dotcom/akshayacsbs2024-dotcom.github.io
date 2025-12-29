@@ -12,27 +12,31 @@
   box-sizing:border-box;
   font-family:Poppins,Segoe UI,sans-serif;
 }
+
+/* ---------- BODY & THEME ---------- */
 body{
-  background:#0f0f0f;
+  background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
   color:#fff;
   scroll-behavior:smooth;
+  transition: background 0.5s, color 0.5s;
 }
 
-/* TOGGLE */
+/* ---------- DARK/LIGHT TOGGLE ---------- */
 .toggle-btn{
   position:fixed;
   left:20px;
   top:20px;
-  padding:8px 12px;
+  padding:10px 14px;
   border:none;
   border-radius:50%;
   background:#ff5fa2;
   color:white;
   cursor:pointer;
   z-index:300;
+  box-shadow:0 0 15px #ff5fa2;
 }
 
-/* SIDE NAV */
+/* ---------- SIDE NAV ---------- */
 .side-nav{
   position:fixed;
   right:20px;
@@ -48,9 +52,13 @@ body{
   border-radius:20px;
   text-decoration:none;
   font-size:14px;
+  transition: transform 0.3s;
+}
+.side-nav a:hover{
+  transform: scale(1.1);
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero{
   min-height:100vh;
   display:flex;
@@ -58,17 +66,36 @@ body{
   justify-content:space-between;
   padding:60px;
 }
+.profile-box{
+  position:relative;
+}
 .profile-box img{
-  width:230px;
+  width:220px;
   border-radius:50%;
   border:5px solid #ff5fa2;
   animation:float 3s ease-in-out infinite;
+  box-shadow:0 0 15px #ff5fa2;
 }
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-10px)}
   100%{transform:translateY(0)}
 }
+.glitter-border{
+  position:absolute;
+  top:-5px; left:-5px;
+  width:230px; height:230px;
+  border-radius:50%;
+  background: conic-gradient(#ff5fa2,#ff69b4,#ff5fa2,#ff69b4);
+  filter: blur(10px);
+  animation: spin 4s linear infinite;
+  z-index:-1;
+}
+@keyframes spin{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
 .intro{
   max-width:60%;
 }
@@ -88,12 +115,13 @@ body{
   color:white;
   border-radius:25px;
   text-decoration:none;
+  transition: 0.3s;
 }
 .btn:hover{
-  box-shadow:0 0 15px #ff5fa2;
+  box-shadow:0 0 20px #ff69b4;
 }
 
-/* SECTION */
+/* ---------- SECTION ---------- */
 section{
   padding:80px 60px;
   border-bottom:1px solid rgba(255,255,255,0.05);
@@ -112,7 +140,7 @@ h2{
   margin-bottom:20px;
 }
 
-/* SKILLS */
+/* ---------- SKILLS ---------- */
 .skills-container{
   display:flex;
   flex-wrap:wrap;
@@ -123,47 +151,86 @@ h2{
   padding:10px 18px;
   border-radius:20px;
   font-size:14px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover{
+  transform: scale(1.1);
+  box-shadow:0 0 15px #ff69b4;
 }
 
-/* PROJECTS */
+/* ---------- PROJECTS ---------- */
 .project{
   background:#1c1c1c;
   padding:20px;
   border-radius:12px;
   margin-bottom:20px;
+  transition:0.3s;
+}
+.project:hover{
+  box-shadow:0 0 20px #ff5fa2;
 }
 
-/* CURRENT LEARNING */
+/* ---------- CURRENT LEARNING ---------- */
 .learning{
   background:#1c1c1c;
   padding:20px;
   border-radius:12px;
   margin-bottom:15px;
+  transition:0.3s;
+}
+.learning:hover{
+  box-shadow:0 0 20px #ff69b4;
 }
 
-/* CERTIFICATE */
+/* ---------- CERTIFICATES ---------- */
+.certificates-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
 .certificate{
   background:#1c1c1c;
-  padding:15px;
-  border-radius:10px;
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+}
+.certificate:hover{
+  box-shadow:0 0 20px #ff5fa2;
+}
+.certificate h4{
+  margin-bottom:8px;
+  color:#ff5fa2;
+}
+.certificate p{
+  font-size:14px;
+  opacity:0.9;
   margin-bottom:10px;
 }
 
-/* LIGHT MODE */
+/* ---------- LIGHT MODE ---------- */
 .light{
-  background:white;
-  color:black;
+  background: linear-gradient(135deg,#fff,#f2f2f2);
+  color:#000;
 }
-.light h1,.light h2{
+.light h1,.light h2,.light h4{
   color:#ff5fa2;
 }
 .light .project,
-.light .certificate,
-.light .learning{
+.light .learning,
+.light .certificate{
   background:#f2f2f2;
+  color:#000;
 }
 
-/* RESPONSIVE */
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  opacity:0.7;
+}
+
+/* ---------- RESPONSIVE ---------- */
 @media(max-width:900px){
   .hero{
     flex-direction:column;
@@ -183,20 +250,23 @@ h2{
 
 <button class="toggle-btn" id="toggle">🌙</button>
 
+<!-- SIDE NAV -->
 <div class="side-nav">
   <a href="#about">About</a>
   <a href="#learning">Learning</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
   <a href="#resume">Resume</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#contact">Contact</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="profile-box">
+    <div class="glitter-border"></div>
     <img src="images/profile.jpg" alt="Akshaya G">
   </div>
-
   <div class="intro">
     <h1>Akshaya G</h1>
     <h3 id="typing"></h3>
@@ -221,18 +291,20 @@ h2{
 
   <div class="learning">
     📘 <strong>NPTEL – Database Management System</strong><br>
-    Applied and actively learning core DBMS concepts such as SQL, normalization,
-    transactions, and indexing.
+    Applied core concepts like SQL queries, normalization, indexing, and transactions
+    to strengthen database design and management skills.
   </div>
 
   <div class="learning">
     💻 <strong>freeCodeCamp – HTML & CSS</strong><br>
-    Learning responsive web design, layouts, and best practices through hands-on exercises.
+    Practicing responsive web design, layouts, and modern UI techniques
+    for building interactive web pages.
   </div>
 
   <div class="learning">
     🧠 <strong>LeetCode</strong><br>
-    Practicing problem-solving and improving logical thinking using coding challenges.
+    Solving coding problems to improve problem-solving, algorithms,
+    and logical thinking skills.
   </div>
 </section>
 
@@ -255,13 +327,15 @@ h2{
   <h2>Projects</h2>
 
   <div class="project">
-    <h3>Personal Portfolio Website</h3>
-    <p>Designed and developed a responsive portfolio using HTML & CSS.</p>
+    <h4>Personal Portfolio Website</h4>
+    <p>Designed and developed a responsive portfolio using HTML & CSS with
+    slide-in animations and dark/light mode toggle.</p>
   </div>
 
   <div class="project">
-    <h3>Power BI Dashboard</h3>
-    <p>Created an interactive dashboard to analyze mental health data.</p>
+    <h4>Power BI Dashboard</h4>
+    <p>Created an interactive dashboard to analyze mental health data,
+    visualizing insights for better decision making.</p>
   </div>
 </section>
 
@@ -275,13 +349,24 @@ h2{
 <!-- CERTIFICATES -->
 <section class="section" id="certificates">
   <h2>Certificates</h2>
+  <div class="certificates-container">
+    <div class="certificate">
+      <h4>HTML Certification (freeCodeCamp)</h4>
+      <p>Learned responsive web design, semantic HTML elements, and practical layout techniques.</p>
+      <a class="btn" href="certificates/html_certificate.pdf" target="_blank">View Certificate</a>
+    </div>
 
-  <div class="certificate">
-    HTML Certificate – <a href="certificates/html_certificate.pdf" target="_blank">View</a>
-  </div>
+    <div class="certificate">
+      <h4>CSS Certification (freeCodeCamp)</h4>
+      <p>Mastered styling, flexbox, grid, animations, and UI design for modern web pages.</p>
+      <a class="btn" href="certificates/css_certificate.pdf" target="_blank">View Certificate</a>
+    </div>
 
-  <div class="certificate">
-    CSS Certificate – <a href="certificates/css_certificate.pdf" target="_blank">View</a>
+    <div class="certificate">
+      <h4>Database Management (NPTEL)</h4>
+      <p>Applied DBMS fundamentals including SQL queries, normalization, indexing, and database design.</p>
+      <a class="btn" href="certificates/dbms_certificate.pdf" target="_blank">View Certificate</a>
+    </div>
   </div>
 </section>
 
@@ -297,17 +382,13 @@ h2{
   </p>
 </section>
 
-<footer style="text-align:center;padding:30px;opacity:0.7">
+<footer>
   © 2025 Akshaya G | Portfolio
 </footer>
 
-<!-- TYPING -->
+<!-- TYPING ANIMATION -->
 <script>
-const texts=[
- "B.Tech CSBS Student",
- "Aspiring Software Developer",
- "Data Analytics Enthusiast"
-];
+const texts=["B.Tech CSBS Student","Aspiring Software Developer","Data Analytics Enthusiast"];
 let i=0,j=0,el=document.getElementById("typing");
 function type(){
  if(j<texts[i].length){
@@ -327,7 +408,7 @@ function erase(){
 type();
 </script>
 
-<!-- SLIDE -->
+<!-- SLIDE ANIMATION -->
 <script>
 const sections=document.querySelectorAll(".section");
 window.addEventListener("scroll",()=>{
@@ -338,7 +419,7 @@ window.addEventListener("scroll",()=>{
 });
 </script>
 
-<!-- TOGGLE -->
+<!-- DARK/LIGHT TOGGLE -->
 <script>
 document.getElementById("toggle").onclick=()=>{
  document.body.classList.toggle("light");
