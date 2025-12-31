@@ -4,164 +4,235 @@
 <meta charset="UTF-8">
 <title>Akshaya G | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,sans-serif;}
-body{background:linear-gradient(135deg,#0f0f0f,#1a1a1a);color:#fff;transition:0.5s;overflow-x:hidden;}
-.light{background:linear-gradient(135deg,#fff,#f2f2f2);color:#000;}
-.light h1,.light h2,.light h4{color:#ff5fa2;}
-.light .page{background:#f2f2f2;color:#000;}
-.toggle-btn{position:fixed;left:20px;top:20px;padding:10px 14px;border:none;border-radius:50%;background:#ff5fa2;color:white;cursor:pointer;z-index:300;box-shadow:0 0 15px #ff5fa2;}
-.slider-container{position:relative;overflow:hidden;height:100vh;width:100%;}
-.page{display:none;height:100vh;width:100%;padding:60px;flex-direction:column;justify-content:center;align-items:center;transition:all 0.8s;}
-.page.active{display:flex;animation:fadeSlide 0.8s;}
-@keyframes fadeSlide{0%{opacity:0;transform:translateX(50px);}100%{opacity:1;transform:translateX(0);}}
-.nav-buttons{position:fixed;bottom:30px;width:100%;display:flex;justify-content:center;gap:20px;z-index:200;}
-.nav-buttons button{padding:10px 25px;border:none;border-radius:25px;background:#ff5fa2;color:#fff;cursor:pointer;box-shadow:0 0 15px #ff5fa2;transition:0.3s;}
-.nav-buttons button:hover{box-shadow:0 0 25px #ff69b4;transform:scale(1.1);}
-.profile-box{position:relative;margin-bottom:20px;}
-.profile-box img{width:150px;border-radius:50%;border:5px solid #ff5fa2;animation:float 3s ease-in-out infinite;box-shadow:0 0 15px #ff5fa2;}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
-.glitter-border{position:absolute;top:-5px;left:-5px;width:160px;height:160px;border-radius:50%;background:conic-gradient(#ff5fa2,#ff69b4,#ff5fa2,#ff69b4);filter:blur(10px);animation:spin 4s linear infinite;z-index:-1;}
-@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-.intro h1{font-size:48px;color:#ff5fa2;margin-bottom:10px;}
-#typing{margin:10px 0;font-weight:400;}
-.btn{display:inline-block;margin-top:15px;padding:10px 20px;background:#ff5fa2;color:white;border-radius:25px;text-decoration:none;transition:0.3s;}
-.btn:hover{box-shadow:0 0 20px #ff69b4;}
-.skills-container{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
-.skill-card{background:#ff5fa2;padding:10px 18px;border-radius:20px;font-size:14px;transition:0.3s;}
-.skill-card:hover{transform:scale(1.1);box-shadow:0 0 15px #ff69b4;}
-.project,.learning,.certificate{background:#1c1c1c;padding:20px;border-radius:12px;margin-bottom:20px;transition:0.3s;width:90%;max-width:600px;text-align:center;}
-.project:hover,.learning:hover,.certificate:hover{box-shadow:0 0 20px #ff5fa2;}
-.certificates-container{display:flex;flex-direction:column;align-items:center;gap:20px;}
-@media(max-width:900px){.intro h1{font-size:36px;}.profile-box img{width:120px;}.glitter-border{width:130px;height:130px;}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,sans-serif}
+body{background:#0f0f0f;color:#fff;transition:.5s;overflow:hidden}
+body.light{background:#f2f2f2;color:#000}
+
+/* BACKGROUND PARTICLES */
+#stars{
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:
+   radial-gradient(2px 2px at 20% 30%,#ff5fa2,transparent),
+   radial-gradient(2px 2px at 80% 70%,#ff5fa2,transparent),
+   radial-gradient(1.5px 1.5px at 50% 50%,#fff,transparent),
+   radial-gradient(1.5px 1.5px at 70% 20%,#fff,transparent),
+   radial-gradient(1.5px 1.5px at 30% 80%,#fff,transparent);
+  animation:move 25s linear infinite;
+}
+@keyframes move{from{background-position:0 0}to{background-position:1000px 1000px}}
+
+.page{
+  display:none;height:100vh;padding:40px;
+  text-align:center;justify-content:center;
+  align-items:center;flex-direction:column;
+}
+.page.active{display:flex;animation:fade .6s}
+@keyframes fade{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+
+h1,h2{color:#ff5fa2;margin-bottom:10px}
+
+.btn{
+  padding:10px 22px;background:#ff5fa2;color:#fff;
+  border-radius:25px;text-decoration:none;
+  margin:8px;display:inline-block;
+  box-shadow:0 0 15px #ff5fa2;
+}
+
+.toggle{
+  position:fixed;top:20px;left:20px;
+  border:none;padding:10px 14px;
+  border-radius:50%;background:#ff5fa2;color:#fff;
+  cursor:pointer;
+}
+
+/* PROFILE */
+.profile-img{
+  width:160px;height:160px;border-radius:50%;
+  border:5px solid #ff5fa2;
+  box-shadow:0 0 25px #ff5fa2;
+  margin-bottom:15px;
+}
+
+/* NAV */
+.nav{
+  position:fixed;bottom:25px;width:100%;
+  display:flex;justify-content:center;gap:20px;
+}
+.nav button{
+  padding:10px 25px;border:none;
+  border-radius:25px;background:#ff5fa2;color:#fff;
+  cursor:pointer;
+}
+
+/* DOTS */
+.dots{
+  position:fixed;bottom:70px;width:100%;
+  display:flex;justify-content:center;gap:10px;
+}
+.dot{width:10px;height:10px;border-radius:50%;background:#555}
+.dot.active{background:#ff5fa2;box-shadow:0 0 10px #ff5fa2}
+
+/* CARDS */
+.card{
+  background:#1c1c1c;padding:20px;border-radius:15px;
+  width:90%;max-width:550px;margin:10px auto;
+}
+body.light .card{background:#fff}
+
+/* SKILLS */
+.skills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.skill{background:#ff5fa2;padding:10px 18px;border-radius:20px}
+
+/* CERTIFICATE */
+.cert-img{
+  width:100%;max-width:300px;border-radius:10px;
+  margin-bottom:10px;box-shadow:0 0 15px #ff5fa2;
+}
+
+/* FORM */
+form input,form textarea{
+  width:100%;padding:10px;margin:8px 0;
+  border-radius:8px;border:none;
+}
 </style>
 </head>
+
 <body>
+<div id="stars"></div>
+<button class="toggle" onclick="toggleMode()">🌙</button>
 
-<button class="toggle-btn" id="toggle">🌙</button>
+<!-- PAGE 1 : PROFILE -->
+<section class="page active">
+  <img src="profile.jpg" class="profile-img">
+  <h1>Akshaya G</h1>
+  <h3 id="typing"></h3>
+  <p>Rooted in self-growth, building skills in software & data analytics</p>
+  <a href="Akshaya_Resume.pdf" class="btn" download>Download Resume</a>
+</section>
 
-<div class="slider-container">
-  <!-- Hero / Profile -->
-  <section class="page active" id="hero">
-    <div class="profile-box">
-      <div class="glitter-border"></div>
-      <img src="images/profile.jpg" alt="Akshaya G">
-    </div>
-    <div class="intro">
-      <h1>Akshaya G</h1>
-      <h3 id="typing"></h3>
-      <p>Rooted in self-growth, building skills in software & data analytics.</p>
-      <a href="#" class="btn">Contact Me</a>
-    </div>
-  </section>
+<!-- PAGE 2 : ABOUT -->
+<section class="page">
+  <h2>About Me</h2>
+  <div class="card">
+    I am a B.Tech CSBS student passionate about software development,
+    databases, and data analytics. I focus on continuous learning
+    through projects and certifications.
+  </div>
+</section>
 
-  <!-- About -->
-  <section class="page" id="about">
-    <h2>About Me</h2>
-    <p>I am a B.Tech CSBS student passionate about software development, databases, and data-driven decision making. I focus on continuous learning through projects and coding platforms.</p>
-  </section>
+<!-- PAGE 3 : SKILLS -->
+<section class="page">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">Python</div>
+    <div class="skill">C</div>
+    <div class="skill">MySQL</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">GitHub</div>
+  </div>
+</section>
 
-  <!-- Currently Learning -->
-  <section class="page" id="learning">
-    <h2>Currently Learning</h2>
-    <div class="learning">📘 <strong>NPTEL – Database Management System</strong><br>Applied SQL, normalization, indexing, and transactions.</div>
-    <div class="learning">💻 <strong>freeCodeCamp – HTML & CSS</strong><br>Practicing responsive web design, layouts, and UI.</div>
-    <div class="learning">🧠 <strong>LeetCode</strong><br>Solving coding problems to improve problem-solving and algorithms.</div>
-  </section>
+<!-- PAGE 4 : PROJECTS -->
+<section class="page">
+  <h2>Projects</h2>
 
-  <!-- Skills -->
-  <section class="page" id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-      <div class="skill-card">HTML</div>
-      <div class="skill-card">CSS</div>
-      <div class="skill-card">Python</div>
-      <div class="skill-card">C Programming</div>
-      <div class="skill-card">MySQL</div>
-      <div class="skill-card">Power BI</div>
-      <div class="skill-card">GitHub</div>
-    </div>
-  </section>
+  <div class="card">
+    <h4>🌐 Personal Portfolio Website</h4>
+    <p>
+      Responsive portfolio with slider navigation, dark/light mode,
+      certificates, resume download, and animations.
+    </p>
+  </div>
 
-  <!-- Projects -->
-  <section class="page" id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h4>Personal Portfolio Website</h4>
-      <p>Responsive portfolio with dark/light mode, typing animation, and slider layout.</p>
-    </div>
-    <div class="project">
-      <h4>Power BI Dashboard</h4>
-      <p>Interactive dashboard analyzing mental health data for insights.</p>
-    </div>
-  </section>
+  <div class="card">
+    <h4>📊 Power BI Mental Health Dashboard</h4>
+    <p>
+      Interactive dashboard using charts and DAX to analyze
+      mental health data and insights.
+    </p>
+  </div>
+</section>
 
-  <!-- Certificates -->
-  <section class="page" id="certificates">
-    <h2>Certificates</h2>
-    <div class="certificates-container">
-      <div class="certificate">
-        <h4>HTML Certification (freeCodeCamp)</h4>
-        <p>Learned responsive web design, semantic HTML elements, and layouts.</p>
-        <a class="btn" href="certificates/html_certificate.pdf" target="_blank">View Certificate</a>
-      </div>
-      <div class="certificate">
-        <h4>CSS Certification (freeCodeCamp)</h4>
-        <p>Mastered styling, flexbox, grid, animations, and modern UI techniques.</p>
-        <a class="btn" href="certificates/css_certificate.pdf" target="_blank">View Certificate</a>
-      </div>
-      <div class="certificate">
-        <h4>Database Management (NPTEL)</h4>
-        <p>Applied SQL, normalization, indexing, and database design concepts.</p>
-        <a class="btn" href="certificates/dbms_certificate.pdf" target="_blank">View Certificate</a>
-      </div>
-    </div>
-  </section>
+<!-- PAGE 5 : CERTIFICATES -->
+<section class="page">
+  <h2>Certificates</h2>
 
-  <!-- Contact -->
-  <section class="page" id="contact">
-    <h2>Contact</h2>
-    <p>Email: akshayagopi0712@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371" target="_blank">Profile</a></p>
-  </section>
+  <div class="card">
+    <img src="html_certificate.jpg" class="cert-img">
+    <h4>HTML – freeCodeCamp</h4>
+    <a class="btn" href="html_certificate.pdf" target="_blank">View Certificate</a>
+  </div>
+
+  <div class="card">
+    <img src="css_certificate.jpg" class="cert-img">
+    <h4>CSS – freeCodeCamp</h4>
+    <a class="btn" href="css_certificate.pdf" target="_blank">View Certificate</a>
+  </div>
+
+  <div class="card">
+    <img src="dbms_certificate.jpg" class="cert-img">
+    <h4>DBMS – NPTEL</h4>
+    <a class="btn" href="dbms_certificate.pdf" target="_blank">View Certificate</a>
+  </div>
+</section>
+
+<!-- PAGE 6 : CONTACT -->
+<section class="page">
+  <h2>Contact Me</h2>
+  <div class="card">
+    <form action="https://formsubmit.co/akshayagopi0712@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- DOTS -->
+<div class="dots" id="dots"></div>
+
+<!-- NAV -->
+<div class="nav">
+  <button onclick="prev()">Previous</button>
+  <button onclick="next()">Next</button>
 </div>
 
-<div class="nav-buttons">
-  <button id="prev">Previous</button>
-  <button id="next">Next</button>
-</div>
-
-<footer style="text-align:center;padding:20px;opacity:0.7;">© 2025 Akshaya G | Portfolio</footer>
-
-<!-- TYPING -->
 <script>
-const texts=["B.Tech CSBS Student","Aspiring Software Developer","Data Analytics Enthusiast"];
-let i=0,j=0,el=document.getElementById("typing");
-function type(){if(j<texts[i].length){el.textContent+=texts[i][j++];setTimeout(type,100);}else setTimeout(erase,1500);}
-function erase(){if(j>0){el.textContent=texts[i].substring(0,--j);setTimeout(erase,60);}else{i=(i+1)%texts.length;setTimeout(type,300);}}
-type();
-</script>
+let pages=document.querySelectorAll('.page'),i=0;
 
-<!-- SLIDER NAV -->
-<script>
-const pages=document.querySelectorAll('.page');
-let currentIndex=0;
-function showPage(index){
-  pages.forEach((p,i)=>{p.classList.remove('active');if(i===index)p.classList.add('active');});
+/* DOTS */
+const dotsBox=document.getElementById("dots");
+pages.forEach(()=>dotsBox.appendChild(document.createElement("div")).className="dot");
+let dots=document.querySelectorAll(".dot");
+
+function show(){
+  pages.forEach(p=>p.classList.remove('active'));
+  dots.forEach(d=>d.classList.remove('active'));
+  pages[i].classList.add('active');
+  dots[i].classList.add('active');
 }
-document.getElementById('next').onclick=()=>{
-  currentIndex=(currentIndex+1)%pages.length;showPage(currentIndex);
-};
-document.getElementById('prev').onclick=()=>{
-  currentIndex=(currentIndex-1+pages.length)%pages.length;showPage(currentIndex);
-};
-</script>
+show();
+function next(){i=(i+1)%pages.length;show();}
+function prev(){i=(i-1+pages.length)%pages.length;show();}
+function toggleMode(){document.body.classList.toggle('light')}
 
-<!-- DARK/LIGHT -->
-<script>
-document.getElementById("toggle").onclick=()=>{
-  document.body.classList.toggle("light");
-};
+/* TYPING */
+const texts=["B.Tech CSBS Student","Aspiring Software Developer","Data Analytics Enthusiast"];
+let t=0,j=0,el=document.getElementById("typing");
+function type(){
+  if(j<texts[t].length){el.textContent+=texts[t][j++];setTimeout(type,100);}
+  else setTimeout(erase,1200);
+}
+function erase(){
+  if(j>0){el.textContent=texts[t].substring(0,--j);setTimeout(erase,60);}
+  else{t=(t+1)%texts.length;setTimeout(type,300);}
+}
+type();
 </script>
 
 </body>
