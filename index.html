@@ -119,6 +119,30 @@ h1,h2{
   font-weight:600;
 }
 
+/* CERTIFICATES */
+.certificate-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  padding:22px;
+  border-radius:18px;
+  max-width:750px;
+  margin:18px auto;
+  box-shadow:0 0 25px rgba(0,247,255,.35);
+}
+.certificate-card img{
+  width:100%;
+  max-width:420px;
+  border-radius:14px;
+  margin-top:14px;
+  box-shadow:0 0 20px #ff4fd8;
+}
+.certificate-card span{
+  font-size:14px;
+  opacity:0.85;
+  display:block;
+  margin-bottom:6px;
+}
+
 /* SOCIAL */
 .social a{
   display:inline-block;
@@ -156,11 +180,10 @@ h1,h2{
 <section class="page">
   <h2>About Me</h2>
   <div class="card">
-    I am a <b>B.Tech Computer Science & Business Systems</b> student with strong
-    interest in <b>software development, databases, and data analytics</b>.
-    I enjoy transforming ideas into clean digital solutions and working with
-    data to extract meaningful insights. I believe in continuous learning,
-    consistency, and building skills through real-world projects.
+    I am a <b>B.Tech Computer Science & Business Systems</b> student with a strong
+    interest in <b>software development, cloud technologies, and data analytics</b>.
+    I focus on learning through online courses and offline internships, applying
+    knowledge practically to solve real-world problems.
   </div>
 </section>
 
@@ -183,31 +206,49 @@ h1,h2{
   <h2>Projects</h2>
   <div class="card">
     <b>Personal Portfolio Website</b><br>
-    Animated multi-page portfolio with glitter UI, certificates, and resume.
+    Designed and developed a multi-page animated portfolio with glitter UI.
   </div>
   <div class="card">
-    <b>Power BI Mental Health Dashboard</b><br>
-    Interactive dashboard using charts and DAX for data analysis.
+    <b>Power BI Data Analysis Dashboard</b><br>
+    Created interactive dashboards to analyze datasets and generate insights.
   </div>
 </section>
 
-<!-- PAGE 5 -->
+<!-- PAGE 5 : CERTIFICATES -->
 <section class="page">
-  <h2>Certificates</h2>
+  <h2>Certificates & Internship</h2>
 
-  <div class="card">
-    <b>HTML & CSS – freeCodeCamp</b><br>
-    <a class="btn" href="certificates/certificate1.pdf" target="_blank">View Certificate</a>
+  <div class="certificate-card">
+    <h3>Introduction to Digital Business Skills</h3>
+    <span>Online Course</span>
+    <p>
+      Learned the fundamentals of digital business, online platforms,
+      and how technology supports modern business operations.
+    </p>
+    <p><b>Outcome:</b> Understanding of digital business models and digital tools.</p>
+    <img src="certificates/digital_business.jpg">
   </div>
 
-  <div class="card">
-    <b>DBMS – NPTEL</b><br>
-    <a class="btn" href="certificates/certificate2.pdf" target="_blank">View Certificate</a>
+  <div class="certificate-card">
+    <h3>Introduction to Cloud Security</h3>
+    <span>Online Course</span>
+    <p>
+      Covered basics of cloud computing security, data protection,
+      threats, and secure cloud practices.
+    </p>
+    <p><b>Outcome:</b> Awareness of cloud security risks and secure usage principles.</p>
+    <img src="certificates/cloud_security.jpg">
   </div>
 
-  <div class="card">
-    <b>Power BI / Data Analytics</b><br>
-    <a class="btn" href="certificates/certificate3.pdf" target="_blank">View Certificate</a>
+  <div class="certificate-card">
+    <h3>Data Analytics Internship</h3>
+    <span>Offline Internship</span>
+    <p>
+      Hands-on internship focused on data analysis, visualization,
+      and working with real datasets.
+    </p>
+    <p><b>Outcome:</b> Practical experience in data cleaning, analysis, and insights.</p>
+    <img src="certificates/data_analytics.jpg">
   </div>
 </section>
 
