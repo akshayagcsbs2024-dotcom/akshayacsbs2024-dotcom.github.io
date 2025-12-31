@@ -7,122 +7,164 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,sans-serif}
-body{background:#0f0f0f;color:#fff;transition:.5s;overflow:hidden}
-body.light{background:#f2f2f2;color:#000}
-
-/* BACKGROUND PARTICLES */
-#stars{
-  position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:
-   radial-gradient(2px 2px at 20% 30%,#ff5fa2,transparent),
-   radial-gradient(2px 2px at 80% 70%,#ff5fa2,transparent),
-   radial-gradient(1.5px 1.5px at 50% 50%,#fff,transparent),
-   radial-gradient(1.5px 1.5px at 70% 20%,#fff,transparent),
-   radial-gradient(1.5px 1.5px at 30% 80%,#fff,transparent);
-  animation:move 25s linear infinite;
+body{
+  background:#050010;
+  color:#fff;
+  overflow:hidden;
 }
-@keyframes move{from{background-position:0 0}to{background-position:1000px 1000px}}
 
+/* GLITTER BACKGROUND */
+#glitter{
+  position:fixed;inset:0;z-index:-1;
+  background:
+   radial-gradient(2px 2px at 20% 30%,#ff4fd8,transparent),
+   radial-gradient(2px 2px at 80% 60%,#00f7ff,transparent),
+   radial-gradient(1.5px 1.5px at 50% 50%,#fff,transparent),
+   radial-gradient(1px 1px at 70% 20%,#ff4fd8,transparent),
+   radial-gradient(1px 1px at 30% 80%,#00f7ff,transparent);
+  animation:float 40s linear infinite;
+}
+@keyframes float{
+  from{background-position:0 0}
+  to{background-position:1500px 1500px}
+}
+
+/* TOP NAV */
+.top-nav{
+  position:fixed;
+  top:18px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 25px;
+  z-index:10;
+}
+.top-nav button{
+  padding:10px 26px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff4fd8,#00f7ff);
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 0 18px #ff4fd8;
+}
+
+/* PAGE */
 .page{
-  display:none;height:100vh;padding:40px;
-  text-align:center;justify-content:center;
-  align-items:center;flex-direction:column;
+  display:none;
+  height:100vh;
+  padding:90px 25px 40px;
+  text-align:center;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 .page.active{display:flex;animation:fade .6s}
-@keyframes fade{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
-
-h1,h2{color:#ff5fa2;margin-bottom:10px}
-
-.btn{
-  padding:10px 22px;background:#ff5fa2;color:#fff;
-  border-radius:25px;text-decoration:none;
-  margin:8px;display:inline-block;
-  box-shadow:0 0 15px #ff5fa2;
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-.toggle{
-  position:fixed;top:20px;left:20px;
-  border:none;padding:10px 14px;
-  border-radius:50%;background:#ff5fa2;color:#fff;
-  cursor:pointer;
+/* TEXT */
+h1,h2{
+  background:linear-gradient(90deg,#ff4fd8,#00f7ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
 }
 
 /* PROFILE */
 .profile-img{
-  width:160px;height:160px;border-radius:50%;
-  border:5px solid #ff5fa2;
-  box-shadow:0 0 25px #ff5fa2;
+  width:170px;height:170px;
+  border-radius:50%;
+  border:5px solid transparent;
+  background:
+   linear-gradient(#050010,#050010) padding-box,
+   linear-gradient(135deg,#ff4fd8,#00f7ff) border-box;
+  box-shadow:0 0 30px #ff4fd8;
   margin-bottom:15px;
 }
 
-/* NAV */
-.nav{
-  position:fixed;bottom:25px;width:100%;
-  display:flex;justify-content:center;gap:20px;
-}
-.nav button{
-  padding:10px 25px;border:none;
-  border-radius:25px;background:#ff5fa2;color:#fff;
-  cursor:pointer;
+/* BUTTON */
+.btn{
+  padding:10px 28px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff4fd8,#00f7ff);
+  color:#000;
+  text-decoration:none;
+  margin:8px;
+  box-shadow:0 0 20px #ff4fd8;
+  font-weight:600;
 }
 
-/* DOTS */
-.dots{
-  position:fixed;bottom:70px;width:100%;
-  display:flex;justify-content:center;gap:10px;
-}
-.dot{width:10px;height:10px;border-radius:50%;background:#555}
-.dot.active{background:#ff5fa2;box-shadow:0 0 10px #ff5fa2}
-
-/* CARDS */
+/* CARD */
 .card{
-  background:#1c1c1c;padding:20px;border-radius:15px;
-  width:90%;max-width:550px;margin:10px auto;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  padding:22px;
+  border-radius:18px;
+  max-width:650px;
+  margin:12px auto;
+  box-shadow:0 0 22px rgba(255,79,216,.45);
 }
-body.light .card{background:#fff}
 
 /* SKILLS */
 .skills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.skill{background:#ff5fa2;padding:10px 18px;border-radius:20px}
-
-/* CERTIFICATE */
-.cert-img{
-  width:100%;max-width:300px;border-radius:10px;
-  margin-bottom:10px;box-shadow:0 0 15px #ff5fa2;
+.skill{
+  padding:10px 18px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ff4fd8,#00f7ff);
+  color:#000;
+  font-weight:600;
 }
 
-/* FORM */
-form input,form textarea{
-  width:100%;padding:10px;margin:8px 0;
-  border-radius:8px;border:none;
+/* SOCIAL */
+.social a{
+  display:inline-block;
+  margin:10px;
+  padding:12px 24px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff4fd8,#00f7ff);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 15px #00f7ff;
 }
 </style>
 </head>
 
 <body>
-<div id="stars"></div>
-<button class="toggle" onclick="toggleMode()">🌙</button>
+<div id="glitter"></div>
 
-<!-- PAGE 1 : PROFILE -->
+<!-- NAV -->
+<div class="top-nav">
+  <button onclick="prev()">⬅ Previous</button>
+  <button onclick="next()">Next ➡</button>
+</div>
+
+<!-- PAGE 1 -->
 <section class="page active">
   <img src="profile.jpg" class="profile-img">
   <h1>Akshaya G</h1>
   <h3 id="typing"></h3>
-  <p>Rooted in self-growth, building skills in software & data analytics</p>
+  <p>Rooted in self-growth • Building future-ready tech skills</p>
   <a href="Akshaya_Resume.pdf" class="btn" download>Download Resume</a>
 </section>
 
-<!-- PAGE 2 : ABOUT -->
+<!-- PAGE 2 -->
 <section class="page">
   <h2>About Me</h2>
   <div class="card">
-    I am a B.Tech CSBS student passionate about software development,
-    databases, and data analytics. I focus on continuous learning
-    through projects and certifications.
+    I am a <b>B.Tech Computer Science & Business Systems</b> student with strong
+    interest in <b>software development, databases, and data analytics</b>.
+    I enjoy transforming ideas into clean digital solutions and working with
+    data to extract meaningful insights. I believe in continuous learning,
+    consistency, and building skills through real-world projects.
   </div>
 </section>
 
-<!-- PAGE 3 : SKILLS -->
+<!-- PAGE 3 -->
 <section class="page">
   <h2>Skills</h2>
   <div class="skills">
@@ -136,101 +178,80 @@ form input,form textarea{
   </div>
 </section>
 
-<!-- PAGE 4 : PROJECTS -->
+<!-- PAGE 4 -->
 <section class="page">
   <h2>Projects</h2>
-
   <div class="card">
-    <h4>🌐 Personal Portfolio Website</h4>
-    <p>
-      Responsive portfolio with slider navigation, dark/light mode,
-      certificates, resume download, and animations.
-    </p>
+    <b>Personal Portfolio Website</b><br>
+    Animated multi-page portfolio with glitter UI, certificates, and resume.
   </div>
-
   <div class="card">
-    <h4>📊 Power BI Mental Health Dashboard</h4>
-    <p>
-      Interactive dashboard using charts and DAX to analyze
-      mental health data and insights.
-    </p>
+    <b>Power BI Mental Health Dashboard</b><br>
+    Interactive dashboard using charts and DAX for data analysis.
   </div>
 </section>
 
-<!-- PAGE 5 : CERTIFICATES -->
+<!-- PAGE 5 -->
 <section class="page">
   <h2>Certificates</h2>
 
   <div class="card">
-    <img src="html_certificate.jpg" class="cert-img">
-    <h4>HTML – freeCodeCamp</h4>
-    <a class="btn" href="html_certificate.pdf" target="_blank">View Certificate</a>
+    <b>HTML & CSS – freeCodeCamp</b><br>
+    <a class="btn" href="certificates/certificate1.pdf" target="_blank">View Certificate</a>
   </div>
 
   <div class="card">
-    <img src="css_certificate.jpg" class="cert-img">
-    <h4>CSS – freeCodeCamp</h4>
-    <a class="btn" href="css_certificate.pdf" target="_blank">View Certificate</a>
+    <b>DBMS – NPTEL</b><br>
+    <a class="btn" href="certificates/certificate2.pdf" target="_blank">View Certificate</a>
   </div>
 
   <div class="card">
-    <img src="dbms_certificate.jpg" class="cert-img">
-    <h4>DBMS – NPTEL</h4>
-    <a class="btn" href="dbms_certificate.pdf" target="_blank">View Certificate</a>
+    <b>Power BI / Data Analytics</b><br>
+    <a class="btn" href="certificates/certificate3.pdf" target="_blank">View Certificate</a>
   </div>
 </section>
 
-<!-- PAGE 6 : CONTACT -->
+<!-- PAGE 6 -->
 <section class="page">
-  <h2>Contact Me</h2>
-  <div class="card">
-    <form action="https://formsubmit.co/akshayagopi0712@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
+  <h2>Connect</h2>
+  <div class="social">
+    <a href="mailto:akshayagopi0712@gmail.com">📧 Email</a>
+    <a href="https://www.linkedin.com/in/akshaya-gopi-7b18a5371" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/" target="_blank">💻 GitHub</a>
   </div>
 </section>
-
-<!-- DOTS -->
-<div class="dots" id="dots"></div>
-
-<!-- NAV -->
-<div class="nav">
-  <button onclick="prev()">Previous</button>
-  <button onclick="next()">Next</button>
-</div>
 
 <script>
-let pages=document.querySelectorAll('.page'),i=0;
-
-/* DOTS */
-const dotsBox=document.getElementById("dots");
-pages.forEach(()=>dotsBox.appendChild(document.createElement("div")).className="dot");
-let dots=document.querySelectorAll(".dot");
-
+let pages=document.querySelectorAll('.page');
+let i=0;
 function show(){
   pages.forEach(p=>p.classList.remove('active'));
-  dots.forEach(d=>d.classList.remove('active'));
   pages[i].classList.add('active');
-  dots[i].classList.add('active');
 }
-show();
-function next(){i=(i+1)%pages.length;show();}
-function prev(){i=(i-1+pages.length)%pages.length;show();}
-function toggleMode(){document.body.classList.toggle('light')}
+function next(){i=(i+1)%pages.length;show()}
+function prev(){i=(i-1+pages.length)%pages.length;show()}
 
 /* TYPING */
-const texts=["B.Tech CSBS Student","Aspiring Software Developer","Data Analytics Enthusiast"];
+const texts=[
+ "B.Tech CSBS Student",
+ "Aspiring Software Developer",
+ "Data Analytics Enthusiast"
+];
 let t=0,j=0,el=document.getElementById("typing");
 function type(){
-  if(j<texts[t].length){el.textContent+=texts[t][j++];setTimeout(type,100);}
-  else setTimeout(erase,1200);
+  if(j<texts[t].length){
+    el.textContent+=texts[t][j++];
+    setTimeout(type,100);
+  }else setTimeout(erase,1200);
 }
 function erase(){
-  if(j>0){el.textContent=texts[t].substring(0,--j);setTimeout(erase,60);}
-  else{t=(t+1)%texts.length;setTimeout(type,300);}
+  if(j>0){
+    el.textContent=texts[t].substring(0,--j);
+    setTimeout(erase,60);
+  }else{
+    t=(t+1)%texts.length;
+    setTimeout(type,300);
+  }
 }
 type();
 </script>
